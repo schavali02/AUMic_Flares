@@ -1,0 +1,13 @@
+uvotbadpix infile= "sw00095500064um2_rw.img.gz" outfile=/Users/shashankchavali/Downloads/bad_image_files/64_quality.img badpixlist=caldb compress=y 
+  
+
+
+2. uvotmodmap infile=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/uvot/image/sw00095500061um2_rw.img.gz outfile=modmap_61.img badpixfile=61_quality.img mod8prod=no mod8file=none nsig=5 ncell=32 subimage=no
+
+3. uvotflatfield infile=modmap_61.img outfile=flatfield_61.img flatfile=caldb
+
+4. swiftxform infile=flatfield_61.img outfile=/Users/shashankchavali/downloads/AUMic_Swift_data/00095500061/uvot/image/sw00095500061um2_sk.img to=SKY attfile=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/auxil/sw00095500061sat.fits.gz teldeffile=caldb ra=311.28971820645245 dec=-31.34090047520722 method=AREA bitpix=-32 clobber=TRUE
+
+5. uvotexpmap infile=/Users/shashankchavali/downloads/AUMic_Swift_data/00095500061/uvot/image/sw00095500061um2_sk.img outfile=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/uvot/image/sw00095500061um2_ex.img.gz badpixfile=02_quality.img teldeffile=caldb attfile=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/auxil/sw00095500061sat.fits.gz method=MEANFOV attdelta=5 clobber=True
+
+6. uvotsource image=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/uvot/image/sw00095500061um2_sk.img+1 srcreg=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/uvot/image/source.reg bkgreg=/Users/shashankchavali/Downloads/AUMic_Swift_data/00095500061/uvot/image/background.reg sigma=3 cleanup=yes chatter=1
